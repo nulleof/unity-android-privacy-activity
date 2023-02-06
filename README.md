@@ -9,7 +9,16 @@ Some of them reject build because `ANDROID_ID` value is read BEFORE user accepte
 Even if I disable ALL Unity services, `android_id` was still requested by Unity engine.
 Chinese stores usually returned reject stacktrace like this (which was helpless for me):
 
-![Android_id_trace](Images/image001.png)
+```
+at android.provider.Settings$Secure.getStringForUser()
+at android.provider.Settings$Secure.getString(Settings.java:4664)
+at com.unity3d.player.UnityPlayer.nativeRender(Native Method)
+at com.unity3d.player.UnityPlayer.access$300(Unknown Source:0)
+at com.unity3d.player.UnityPlayer$e$1.handleMessage(Unknown Source:95)
+at android.os.Handler.dispatchMessage(Handler.java:102)
+at android.os.Looper.loop(Looper.java:164)
+at com.unity3d.player.UnityPlayer$e.run(Unknown Source:20)
+```
 
 As I could find, it's a strange Unity behavior, that is hard to fix.
 You can read a little about this problem [on unity forum](https://forum.unity.com/threads/when-unity-starts-on-android-its-collecting-android_id-can-we-disable-it.1264613/)
