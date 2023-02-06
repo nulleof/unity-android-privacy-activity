@@ -46,7 +46,7 @@ public class PrivacyActivity extends Activity {
                     +"<a href=\"http://www.google.com\">google</a><br>"
                     +"<a href=\"http://www.google.com\">google</a><br>"
             ));
-            dialog.setCancelable(true);
+            dialog.setCancelable(false);
             dialog .setNegativeButton("Decline", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
